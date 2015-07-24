@@ -54,9 +54,9 @@
                     //选中判断
                     if (pickElem != null) {
                         if (pickElem.id != this.id && pickElem.attrs.fill == this.attrs.fill) {
-                            var 
-                                tempElem=this;
-                            if (tempElem.attrs.cy<pickElem.attrs.cy) {
+                            var
+                                tempElem = this;
+                            if (tempElem.attrs.cy < pickElem.attrs.cy) {
                                 tempElem = pickElem;
                                 pickElem = this;
                             }
@@ -97,6 +97,7 @@
                     }
                 });
             }
+
             //随机色
             function randomColor(num) {
                 var retData = [];
@@ -109,6 +110,7 @@
                 }
                 return retData;
             }
+
             //生成
             function createElem(xy) {
                 //500 / 5 =100 、 5 * 5 = 25
@@ -143,6 +145,7 @@
                     }
                 }
             }
+
             //坐标填充 xy=确认移除的元素坐标
             function xyzFill(xy) {
                 var elemRowNum = Math.ceil(xy.y / 100);
@@ -152,19 +155,19 @@
                             nowId = 'x' + xy.x + 'y' + (xy.y - 100 * i),
                             newId = 'x' + xy.x + 'y' + ((xy.y - 100 * i) + 100),
                             elem = paper.getById(nowId);
-                        if (elem) { 
+                        if (elem) {
                             elem.id = newId;
                             elem.animate({
                                 cy: (xy.y - 100 * i) + 100
-                            }, 300); 
+                            }, 300);
                         } else {
                             console.log(nowId);
                         }
                     }
                 }
-
                 createElem({ x: xy.x, y: 50 });
             }
+
             createElem();
         })();
     </script>
